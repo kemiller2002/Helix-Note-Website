@@ -1,0 +1,27 @@
+.hero {
+  text-align: center;
+  padding: 2rem;
+}
+.logo {
+  max-height: 100px;
+  margin-bottom: 1rem;
+}
+.title {
+  font-size: 2.5rem;
+  margin: 0;
+}
+.subtitle {
+  font-size: 1.25rem;
+  color: #555;
+}
+section {
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 1rem;
+}
+.site-footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #999;
+  padding: 2rem 1rem;
+}
