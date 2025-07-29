@@ -1,0 +1,104 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #f9fafc;
+  color: #333;
+  line-height: 1.6;
+}
+
+header.hero {
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.logo {
+  max-height: 80px;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+section {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+h2 {
+  color: #1e3a8a;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature h3 {
+  margin-top: 0;
+  color: #2563eb;
+}
+
+.feature p {
+  margin-bottom: 0;
+}
+
+.use-cases ul {
+  list-style: disc inside;
+  padding-left: 1rem;
+}
+
+.case-study blockquote {
+  font-style: italic;
+  border-left: 4px solid #2563eb;
+  padding-left: 1rem;
+  color: #555;
+  margin: 1rem 0;
+}
+
+.case-study .attribution {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+table th {
+  background: #f3f4f6;
+  color: #1e3a8a;
+}
+
+footer.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #888;
+}

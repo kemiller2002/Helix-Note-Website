@@ -11,13 +11,19 @@
   margin: 0;
 }
 .subtitle {
-  font-size: 1.25rem;
-  color: #555;
+  font-size: 1.5rem;
+  color: #ccccff;
+  font-weight: 600;
 }
 section {
   margin: 2rem auto;
   max-width: 800px;
   padding: 1rem;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 .site-footer {
   text-align: center;

@@ -1,0 +1,5 @@
+title: HelixNote
+description: Precision documentation for complex health and research cases
+baseurl: "" # If using a custom domain, update this
+url: "" # You can leave this blank for now
+theme: minima
