@@ -1,0 +1,13 @@
+{
+  "name": "helixnote-website",
+  "private": true,
+  "type": "module",
+  "description": "HelixNote static marketing site. The site has no runtime npm dependencies; these are test-only tools.",
+  "scripts": {
+    "serve": "node tools/serve.mjs .",
+    "ui:conformance": "playwright test --config=playwright.config.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1"
+  }
+}
