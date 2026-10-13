@@ -13,10 +13,14 @@
   --radius2: 24px;
   --max: 1120px;
   --focus: 2px solid rgba(255,255,255,.9);
+  --gutter: 18px;
+  /* Room reserved above in-page anchor targets for the sticky header (ULI-L05). */
+  --header-clearance: 96px;
 }
 
 *{box-sizing:border-box}
 html,body{height:100%}
+html{ scroll-padding-top: var(--header-clearance); }
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -26,13 +30,15 @@ body{
     radial-gradient(900px 500px at 90% 20%, rgba(0, 184, 212,.16), transparent 60%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
   line-height:1.55;
+  overflow-wrap: break-word;
 }
 
 a{color:inherit}
-.container{max-width:var(--max); margin:0 auto; padding:0 18px}
+.container{max-width:var(--max); margin:0 auto; padding:0 var(--gutter)}
 .skip-link{
   position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
 }
+main:focus{ outline:none; }
 .skip-link:focus{
   position:fixed; left:18px; top:18px; width:auto; height:auto; padding:10px 12px;
   background:#111a33; border:1px solid var(--line); border-radius:12px; z-index:9999;
@@ -48,14 +54,14 @@ a{color:inherit}
 
 .header-inner{
   display:flex; align-items:center; justify-content:space-between; gap:12px;
-  padding:12px 0;
+  padding-block:12px;
 }
 
 .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; min-width: 0; }
 .brand-mark{ width:40px; height:40px; border-radius:12px; box-shadow: var(--shadow); background: rgba(255,255,255,.06); }
 .brand-text{ display:flex; flex-direction:column; min-width:0; }
 .brand-name{ font-weight:750; letter-spacing:.2px; }
-.brand-tagline{ color:var(--muted); font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width: 50vw; }
+.brand-tagline{ color:var(--muted); font-size:13px; }
 
 .site-nav{
   display:flex; align-items:center; gap:16px;
@@ -63,6 +69,7 @@ a{color:inherit}
 .site-nav a{
   text-decoration:none; color:var(--muted);
   padding:10px 10px; border-radius:12px;
+  white-space:nowrap;
 }
 .site-nav a:hover{ color:var(--text); background: rgba(255,255,255,.06); }
 
@@ -365,14 +372,14 @@ h2{
   padding: 16px;
 }
 .contact-row{
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
   gap: 12px;
   padding: 10px 0;
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .contact-row:last-child{ border-bottom:none; }
 .contact-label{ color: var(--muted); font-weight: 700; }
-.contact-link{ color: rgba(255,255,255,.92); text-decoration:none; }
+.contact-link{ color: rgba(255,255,255,.92); text-decoration:none; min-width:0; overflow-wrap:anywhere; }
 .contact-link:hover{ text-decoration: underline; }
 .contact-template{
   width:100%;
@@ -388,6 +395,8 @@ h2{
   font-size: 12.5px;
 }
 .contact-template:focus{ outline: var(--focus); outline-offset: 3px; }
+.copy-status{ margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+.tabpanel:focus-visible{ outline: var(--focus); outline-offset: -3px; }
 
 .aside-card{
   border-radius: var(--radius2);
@@ -416,29 +425,30 @@ h2{
 .footer-mark{ width: 34px; height: 34px; border-radius: 12px; background: rgba(255,255,255,.06); }
 .footer-name{ font-weight: 850; }
 .footer-sub{ color: var(--muted); font-size: 13px; }
-.footer-links{ display:flex; gap: 10px; color: var(--muted); }
+.footer-links{ display:flex; flex-wrap:wrap; gap: 10px; color: var(--muted); }
 .footer-links a{ text-decoration:none; padding: 8px 10px; border-radius: 12px; }
 .footer-links a:hover{ background: rgba(255,255,255,.05); color: var(--text); }
 .footer-note{ color: rgba(255,255,255,.55); font-size: 12px; }
 
 /* Mobile */
-@media (max-width: 900px){
-  .hero-grid{ grid-template-columns: 1fr; }
+@media (max-width: 56.25em){
   .hero-card{ min-height: 360px; }
-  .cards{ grid-template-columns: 1fr; }
-  .two-col{ grid-template-columns: 1fr; }
-  .mini-grid{ grid-template-columns: 1fr; }
-  .steps{ grid-template-columns: 1fr; }
-  .privacy-grid{ grid-template-columns: 1fr; }
-  .cta-inner{ grid-template-columns: 1fr; }
-  .brand-tagline{ max-width: 62vw; }
+  .hero-grid,
+  .cards,
+  .two-col,
+  .mini-grid,
+  .steps,
+  .privacy-grid,
+  .cta-inner{ grid-template-columns: minmax(0,1fr); }
 }
 
-@media (max-width: 860px){
+/* The full navigation needs ~990px with the brand tagline; below that it is
+   recomposed into the menu rather than wrapped or cropped (ULI-L06). */
+@media (max-width: 63.99em){
   .nav-toggle{ display:inline-flex; }
   .site-nav{
-    position: fixed;
-    top: 64px;
+    position: absolute;
+    top: calc(100% + 8px);
     left: 12px; right: 12px;
     display:none;
     flex-direction: column;
@@ -452,6 +462,12 @@ h2{
   }
   .site-nav[data-open="true"]{ display:flex; }
   .site-nav a{ padding: 12px 12px; }
+}
+
+/* Too narrow for the tagline beside the brand and menu toggle: drop it rather
+   than crop it (it is repeated in the footer). */
+@media (max-width: 23.4em){
+  .brand-tagline{ display:none; }
 }
 
 /* Print */

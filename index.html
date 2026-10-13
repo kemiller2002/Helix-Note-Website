@@ -41,7 +41,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section id="top" class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -73,7 +73,7 @@
           </div>
         </div>
 
-        <div class="hero-card" aria-label="Sample output preview">
+        <div class="hero-card" role="figure" aria-label="Sample output preview">
           <div class="mock-window">
             <div class="mock-titlebar">
               <span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span>
@@ -190,7 +190,7 @@
             <button class="tab" role="tab" aria-selected="false" aria-controls="panel-forensics" id="tab-forensics">Forensics</button>
           </div>
 
-          <div class="tabpanel" role="tabpanel" id="panel-med" aria-labelledby="tab-med">
+          <div class="tabpanel" role="tabpanel" tabindex="0" id="panel-med" aria-labelledby="tab-med">
             <div class="two-col">
               <div>
                 <h3>Complex medical journeys</h3>
@@ -223,7 +223,7 @@
             </div>
           </div>
 
-          <div class="tabpanel" role="tabpanel" id="panel-research" aria-labelledby="tab-research" hidden>
+          <div class="tabpanel" role="tabpanel" tabindex="0" id="panel-research" aria-labelledby="tab-research" hidden>
             <div class="two-col">
               <div>
                 <h3>Multi-variable research and investigations</h3>
@@ -255,7 +255,7 @@
             </div>
           </div>
 
-          <div class="tabpanel" role="tabpanel" id="panel-forensics" aria-labelledby="tab-forensics" hidden>
+          <div class="tabpanel" role="tabpanel" tabindex="0" id="panel-forensics" aria-labelledby="tab-forensics" hidden>
             <div class="two-col">
               <div>
                 <h3>High-stakes documentation</h3>
@@ -401,7 +401,7 @@
             <summary>How do I get access?</summary>
             <div class="faq-body">
               <p>
-                HelixNote is currently offered via demo / early access. Use the contact form below to request a walkthrough.
+                HelixNote is currently offered via demo / early access. Email us from the <a href="#contact">Request a demo</a> section below to request a walkthrough.
               </p>
             </div>
           </details>
@@ -428,7 +428,7 @@
             </div>
             <div class="contact-row">
               <span class="contact-label">Message template</span>
-              <button class="btn btn-small" data-copy="demo-template">Copy</button>
+              <button class="btn btn-small" type="button" data-copy="demo-template" data-copy-status="copy-status" aria-label="Copy message template">Copy</button>
             </div>
             <textarea id="demo-template" class="contact-template" readonly>
 Hi — I’d like a HelixNote demo.
@@ -440,6 +440,7 @@ Rough timeline / urgency:
 
 Thank you.
             </textarea>
+            <p id="copy-status" class="copy-status" role="status" aria-live="polite" aria-label="Copy status"></p>
           </div>
         </div>
 
